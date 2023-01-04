@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/react-portfilio/static/css/main.847d46a2.css",
-    "main.js": "/react-portfilio/static/js/main.555b8e28.js",
+    "main.js": "/react-portfilio/static/js/main.7fd9f42b.js",
     "static/js/787.9b7d9840.chunk.js": "/react-portfilio/static/js/787.9b7d9840.chunk.js",
     "static/media/logo.png": "/react-portfilio/static/media/logo.dd0f643548d673671c25.png",
     "index.html": "/react-portfilio/index.html",
     "main.847d46a2.css.map": "/react-portfilio/static/css/main.847d46a2.css.map",
-    "main.555b8e28.js.map": "/react-portfilio/static/js/main.555b8e28.js.map",
+    "main.7fd9f42b.js.map": "/react-portfilio/static/js/main.7fd9f42b.js.map",
     "787.9b7d9840.chunk.js.map": "/react-portfilio/static/js/787.9b7d9840.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.847d46a2.css",
-    "static/js/main.555b8e28.js"
+    "static/js/main.7fd9f42b.js"
   ]
 }
