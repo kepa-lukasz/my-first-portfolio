@@ -38,7 +38,7 @@ const Jokes = () => {
       <Toast.Header >
         <strong className="me-auto">Daily joke</strong>
       </Toast.Header>
-      <Toast.Body className="text-dark py-1 text-center">{joke}</Toast.Body>
+      <Toast.Body className="text-dark py-1 ">{joke}</Toast.Body>
     </Toast>
        </Col>
     </Row>
