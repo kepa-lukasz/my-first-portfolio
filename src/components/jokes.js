@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Spinner, Toast } from "react-bootstrap";
+import { Spinner, Toast, Row, Col } from "react-bootstrap";
 import {useCookies} from "react-cookie";
 
 const Jokes = () => {
@@ -32,12 +32,16 @@ const Jokes = () => {
   }, [])
     //returning Toast with joke
   return (
-    <Toast show={showToast} onClose={hide} className="w-75 m-auto my-3 p-0 fs-5">
-      <Toast.Header className="w-100">
+    <Row fluid className="d-flex justify-content-center m-0">
+       <Col className="col-11 col-sm-10 p-0">
+    <Toast fluid show={showToast} onClose={hide} className="w-100 my-3 p-0 fs-5">
+      <Toast.Header >
         <strong className="me-auto">Daily joke</strong>
       </Toast.Header>
-      <Toast.Body className="text-dark py-1">{joke}</Toast.Body>
+      <Toast.Body className="text-dark py-1 text-center">{joke}</Toast.Body>
     </Toast>
+       </Col>
+    </Row>
   )
 }
 export default Jokes;

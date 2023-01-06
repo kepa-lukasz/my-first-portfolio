@@ -8,8 +8,8 @@ const SwitchElement = ({ handleClick }) => {
     const [cookie, setCookie] = useCookies(['darktheme'])
     let isDark = (cookie.darktheme === "1")
 
-    //set label tag defined by cookie
-    let themeHandler = (isDark) ? <Container><BsSunFill /> motyw jasny</Container> : <Container><BsMoonStarsFill /> motyw ciemny</Container>
+    //set label tag
+    let themeHandler = <Container><BsMoonStarsFill /> motyw ciemny</Container>
     const [theme, setTheme] = useState(themeHandler)
 
     //send default info about theme to App.js
@@ -20,21 +20,20 @@ const SwitchElement = ({ handleClick }) => {
     //onClick change values
     const changetheme = (event) => {
         if (event.target.checked) {
-            themeHandler = <Container><BsSunFill /> motyw jasny</Container>
+           
             setCookie("darktheme", 1, { path: "/", expires: new Date(2023, 11, 31) })
             isDark = true
         }
         else {
-            themeHandler = <Container><BsMoonStarsFill /> motyw ciemmy</Container>
+           
             setCookie("darktheme", 0, { path: "/", expires: new Date(2023, 11, 31) })
             isDark = false
         }
-        //send info to App.js set label tag
+        //send info to App.js 
         handleClick(isDark)
-        setTheme(themeHandler)
     }
     return (
-        <Container fluid className="pe-4 pt-1 border-bottom border-success">
+        <Container fluid className=" p-0 pe-4 pt-1 border-bottom border-success" style={{minHeight : "4vh"}}>
             <Form.Check
                 reverse
                 type="switch"

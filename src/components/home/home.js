@@ -5,7 +5,7 @@ import Cv from "./cv"
 
 const Home = () => {
     return (
-      <Container>
+      <Container fluid className="m-0 p-0 ">
         <Motivation/>
         <Cv/>
       </Container>

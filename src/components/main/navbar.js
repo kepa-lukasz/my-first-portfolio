@@ -11,7 +11,7 @@ const NavbarElement = () => {
       <Container fluid>
         <Navbar.Brand>
         <Link to="/">
-          <img style={{maxHeight : "80px"}} src={logo}/>
+          <img style={{maxHeight : "70px"}} src={logo}/>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle className="border border-bottom border-success"  aria-controls="navbarScroll" />

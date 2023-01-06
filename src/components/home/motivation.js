@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Axios from "axios";
-import { Spinner, Alert, Container } from "react-bootstrap"
+import { Spinner, Alert, Container, Col } from "react-bootstrap"
 
 const Motivation = () => {
     const spinner = <Container><Spinner className="m-auto d-flex" animation="border" /></Container>
@@ -25,10 +25,12 @@ const Motivation = () => {
     }, [])
 
     return (
-        <Container fluid className="d-flex justify-content-center">
-        <Alert variant="dark" style={{width : "fit-content"}}>
-            {quote}
-        </Alert>
+        <Container fluid className="d-flex justify-content-center m-0 p-0">
+            <Col className="col-11 col-sm-10">
+                <Alert variant="dark">
+                    {quote}
+                </Alert>
+            </Col>
         </Container>
     )
 }

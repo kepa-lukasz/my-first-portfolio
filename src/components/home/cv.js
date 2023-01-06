@@ -5,21 +5,23 @@ import { BsAt, BsCompass, BsClipboardCheck, BsPuzzle, BsGear, BsCpu, BsPersonSqu
 
 let Cv = () => {
     return (
-        <Container fluid className=" justify-content-center mt-3 ">
-            <Container fluid className="mb-5 col-11 m-auto rounded p-0 border border-success" style={{ boxShadow: "0 0 5px white" }}>
+        <Container fluid className="d-flex justify-content-center p-0">
+
+        <Container fluid className=" justify-content-center mt-3 col-11 col-sm-10 p-0 m-0">
+            <Container fluid className="mb-5 m-auto rounded p-0 border border-success" >
                 <Container fluid className="bg-success">
                     <Row fluid>
                         <Col className="col-12 col-md-9 ps-4">
                             <h1 className="py-3 ps-3 m-0"><BsPersonSquare className="text-warning"/> Łukasz Kępa</h1>
                             <label className="fs-4">
-                                <BsEnvelopeFill className="text-warning"/>&nbsp;email&nbsp;:&nbsp;<wbr/>
+                                <BsEnvelopeFill className="text-warning"/>&nbsp;email&nbsp;:&nbsp;<br/>
                                 <a className="text-warning" href="mailto:lukaszkepa03@gmail.com">
                                      lukaszkepa03<BsAt/>gmail.com
                                 </a>
                             </label>
                             <br/>
-                            <label className="fs-4">
-                                <BsGithub className="text-warning"/>&nbsp;github&nbsp;:&nbsp;<wbr/>
+                            <label className="fs-4 mb-3">
+                                <BsGithub className="text-warning"/>&nbsp;github&nbsp;:&nbsp;<br/>
                                 <a className="text-warning" href="https://github.com/kepa-lukasz">
                                      https://github.com/kepa-lukasz
                                 </a>
@@ -77,6 +79,7 @@ let Cv = () => {
 
             </Container>
 
+        </Container>
         </Container>
 
 

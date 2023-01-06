@@ -15,7 +15,7 @@ const TicTac = () => {
     //change index in background tab into new icon
     fieldsGenerator[idx] =
       <Col key={idx} className="col-4 d-flex justify-content-center">
-        <Button disabled className="bg-success border border-dark m-2 p-3" onClick={change.bind(this, idx)}>
+        <Button disabled className="bg-success border border-dark m-1 p-2" onClick={change.bind(this, idx)}>
           {(counter % 2 === 0) ? <BsCircle size={iconSize} /> : <BsXLg size={iconSize} />}
         </Button>
       </Col>
@@ -74,7 +74,7 @@ const TicTac = () => {
     for (let i = 0; i < 9; i++) {
       fieldsGenerator.push(
         <Col key={i} className="col-4 d-flex justify-content-center">
-          <Button className="bg-success border border-light m-2 p-3" onClick={change.bind(this, i)}>
+          <Button className="bg-success border border-light m-1 p-2" onClick={change.bind(this, i)}>
             <BsJustify size={iconSize} />
           </Button>
         </Col>
@@ -91,7 +91,7 @@ const TicTac = () => {
   const [fields, setFields] = useState(fieldsGenerator);
 
   return (
-    <Container fluid className="justify-content-center d-flex">
+    <Container fluid className="justify-content-center d-flex p-0">
       {/*offcanvas with info about game results*/}
       <Offcanvas style={{ height: "max-content" }} className="text-center justify-content-center d-flex" placement="top" show={(winner !== "")}>
         <Offcanvas.Header>
@@ -106,13 +106,19 @@ const TicTac = () => {
       </Offcanvas>
 
       {/* game fields */}
-      <Container className="col-md-6">
-        <Row className="rounded border-success border" style={{ backgroundColor: "#32174D" }}>
-          {fields}
-        </Row>
-        <Button onClick={newGame} variant="danger fs-3 my-3">Wyczyść pola</Button>
+      <Container fluid className="p-0 m-0 col-11 col-sm-10">
+      <Container className=" p-0 rounded border-success border " style={{ backgroundColor: "#32174D"}}>
+        <Container className="col-12 col-md-9 d-flex justify-content-center">
+        <Row className="col-12 col-md-10 col-xl-8" >
+        {fields}
+        </Row >
+        </Container>
+
+    
       </Container>
+      <Button onClick={newGame} variant="danger fs-3 my-3">Wyczyść pola</Button>
     </Container>
+      </Container>
   )
 }
 export default TicTac;
