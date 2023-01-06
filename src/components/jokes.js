@@ -29,7 +29,7 @@ const Jokes = () => {
     .catch(err => {
       setJoke(<p>Podczas ładowania żartu, wystąpił problem :(</p>)
     })
-  }, [])
+  }, [cookies.showJoke])
     //returning Toast with joke
   return (
     <Row fluid className="d-flex justify-content-center m-0">
