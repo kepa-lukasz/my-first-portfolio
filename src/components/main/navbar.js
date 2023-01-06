@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Container, Nav, Navbar, DropdownButton, Dropdown } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { BsHouseFill, BsCalendarCheckFill, } from "react-icons/bs"
 import { GiTicTacToe } from "react-icons/gi"
 import logo from "../logo.png"
@@ -11,7 +11,7 @@ const NavbarElement = () => {
       <Container fluid>
         <Navbar.Brand>
         <Link to="/">
-          <img style={{maxHeight : "70px"}} src={logo}/>
+          <img style={{maxHeight : "70px"}} src={logo} alt="logo"/>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle className="border border-bottom border-success"  aria-controls="navbarScroll" />

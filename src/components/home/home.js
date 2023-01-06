@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card, Form, Button, FloatingLabel } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Motivation from './motivation';
 import Cv from "./cv"
 

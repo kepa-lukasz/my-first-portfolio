@@ -18,7 +18,7 @@ function Cookies() {
     if (cookie.allowCookies === "1") {
       setShow(false);
     }
-  }, [])
+  }, [cookie.allowCookies])
   return (
 
     <Offcanvas show={show} placement="bottom" style={{minHeight : "40vh"}}>

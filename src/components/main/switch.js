@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Form } from "react-bootstrap"
 import { useCookies } from "react-cookie";
-import { BsMoonStarsFill, BsSunFill } from "react-icons/bs"
+import { BsMoonStarsFill } from "react-icons/bs"
 
 const SwitchElement = ({ handleClick }) => {
     //define cookies, set variable based on cookie
@@ -10,12 +10,12 @@ const SwitchElement = ({ handleClick }) => {
 
     //set label tag
     let themeHandler = <Container><BsMoonStarsFill /> motyw ciemny</Container>
-    const [theme, setTheme] = useState(themeHandler)
+    const [theme] = useState(themeHandler)
 
     //send default info about theme to App.js
     useEffect(() => {
         handleClick(isDark)
-    }, [])
+    }, [handleClick, isDark])
 
     //onClick change values
     const changetheme = (event) => {

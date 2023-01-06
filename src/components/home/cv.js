@@ -29,7 +29,7 @@ let Cv = () => {
                             <p className="fs-5">Podawanie prywatnych informacji w internecie nie jest mądre, jeśli chcesz, skontaktuj się ze mną drogą mailową</p>
                         </Col>
                         <Col className="col-12 col-md-3 justify-content-end d-flex align-items-center p-0">
-                            <img  src={logo}/>
+                            <img  src={logo} alt="logo"/>
                         </Col>
                     </Row>
 
