@@ -1,17 +1,20 @@
 import './App.css';
-import { HashRouter, Routes, Route } from "react-router-dom";
-import Home from './components/home/home';
-import Navbar from './components/main/navbar';
 import 'bootstrap/dist/css/bootstrap.css';
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Row, Container } from 'react-bootstrap';
-import TicTac from './components/tictac';
-import Jokes from './components/jokes';
-import Er404 from './components/main/er404'
-import Day from './components/unusual_days';
+import { useState, lazy, Suspense } from 'react';
+import Navbar from './components/main/navbar';
 import Footer from "./components/main/footer"
+import SwitchElement from "./components/main/switch";
 import Cookies from "./components/main/cookies";
-import SwitchElement from "./components/main/switch"
-import { useState } from 'react';
+import Jokes from './components/jokes';
+import Loading from './components/main/loading';
+
+const TicTac = lazy(()=>import( './components/tictac'))
+const Er404 = lazy(()=>import( './components/main/er404'))
+const Day = lazy(()=>import( './components/unusual_days'))
+const Home = lazy(()=>import('./components/home/home'))
+
 
 function App() {
   //set default value for theme
@@ -36,13 +39,14 @@ function App() {
 
           <Jokes />
           <Row className='m-0'>
-
-            <Routes>
+            <Suspense fallback={<Loading/>}>
+            <Routes> 
               <Route path='/' element={<Home />} />
               <Route path='/tictac' element={<TicTac />} />
               <Route path='/unusual_day' element={<Day />} />
               <Route path='/*' element={<Er404 />} />
             </Routes>
+            </Suspense>
           </Row>
 
           <Footer style={{ alignSelf: "flex-end" }} />
