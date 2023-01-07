@@ -20,7 +20,7 @@ const Home = lazy(() => import('./components/home/home'))
 
 
 function App() {
-  const [cookies, setCookie] = useCookies();
+  const [cookies] = useCookies();
 
   //set default value for theme
   const [theme, setTheme] = useState("bg-light text-black p-0")
