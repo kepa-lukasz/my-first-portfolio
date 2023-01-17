@@ -32,7 +32,7 @@ function App() {
   }
   return (
     <HashRouter>
-      <Container fluid className={theme} style={{ minHeight: "100vh" }}>
+      <Container fluid className={theme} >
 
 
         <Container fluid className="fixed-top text-light bg-success" style={{ boxShadow: "0 0 5px #198754" }}>

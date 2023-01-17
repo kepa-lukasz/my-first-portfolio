@@ -50,7 +50,7 @@ const TicTac = () => {
     if (idx === 0 || idx === 4 || idx === 8) {
       points[6] += point
     }
-    else if (idx === 2 || idx === 4 || idx === 6) {
+    if (idx === 2 || idx === 4 || idx === 6) {
       points[7] += point
     }
 
