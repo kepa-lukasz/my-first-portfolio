@@ -26,10 +26,10 @@ let Cv = () => {
                                      https://github.com/kepa-lukasz
                                 </a>
                             </label>
-                            <p className="fs-5">Podawanie prywatnych informacji w internecie nie jest mądre, jeśli chcesz, skontaktuj się ze mną drogą mailową</p>
+                            <p className="fs-5 pe-3 me-4">Podawanie prywatnych informacji w internecie nie jest mądre, jeśli chcesz, skontaktuj się ze mną drogą mailową</p>
                         </Col>
                         <Col className="col-12 col-md-3 justify-content-end d-flex align-items-center p-0">
-                            <img  src={logo} alt="logo"/>
+                            <img  src={logo} alt="logo" className="m-4" style={{width : "200px"}}/>
                         </Col>
                     </Row>
 
