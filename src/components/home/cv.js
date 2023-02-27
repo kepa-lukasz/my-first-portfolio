@@ -52,8 +52,8 @@ let Cv = () => {
                         <p className="fs-5 m-2 ms-5">Aktualnie </p>
                         <p className="fs-5 ms-4">Kurs kwalifikacji zawodowych technik programista</p><br />
                         <p className="fs-5 ms-4">Kwalifikacja technik informatyk</p><br />
-                        <p className="fs-5 ms-4">Studium Talent PWr - matematyka</p><br />
                         <p className="fs-5 m-2 ms-5">Ukończone</p>
+                        <p className="fs-5 ms-4">Studium Talent PWr - matematyka</p><br />
                         <p className="fs-5 ms-4">Cisco IT Essentials: PC Hardware and Software</p><br />
                         <p className="fs-5 ms-4">Cisco CCNAv7: Introduction to Networks</p><br />
                     </Container>
@@ -70,10 +70,10 @@ let Cv = () => {
                     <hr />
                     <Container fluid>
                         <label className="h3 fw-bold m-3 text-warning"><BsCompass /> Zainteresowania</label>
-                        <p className="fs-5 m-3 ms-4">Harcerstwo (Instruktor ZHR)</p>
+                        <p className="fs-5 m-3 ms-4">Harcerstwo (Jestem intruktorem ZHR)</p>
                         <p className="fs-5 m-3 ms-4">Sport</p>
                         <p className="fs-5 m-3 ms-4">Szachy</p>
-                        <p className="fs-5 m-3 ms-4">Matematyka</p>
+
                     </Container>
                 </Container>
 
