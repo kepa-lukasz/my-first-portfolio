@@ -8,20 +8,18 @@ const Motivation = () => {
     useEffect(() => {
 
         const options = {
-            method: 'POST',
-            url: 'https://motivational-quotes1.p.rapidapi.com/motivation',
+            method: 'GET',
+            url: 'https://motivational-content.p.rapidapi.com/quotes/4',
             headers: {
-                'content-type': 'application/json',
                 'X-RapidAPI-Key': '24cd410a5emsh3a1378cf7ba509dp141ab9jsn8463b7646711',
-                'X-RapidAPI-Host': 'motivational-quotes1.p.rapidapi.com'
-            },
-            data: '{"key1":"value"}'
+                'X-RapidAPI-Host': 'motivational-content.p.rapidapi.com'
+            }
         };
-        Axios.request(options).then((res) => {
-            setQuote(res.data)
-        }).catch((err) => {
-            setQuote("Nie udało się załadować tekstu :(")
-        })
+        Axios.request(options).then((res)=>{
+           setQuote(res.data.quote)
+        }).catch(()=>{
+            setQuote("nie udało się załadować tekstu :(")
+        });
     }, [])
 
     return (

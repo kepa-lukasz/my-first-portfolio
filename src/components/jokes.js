@@ -21,14 +21,26 @@ const Jokes = () => {
     setShowToast(!(cookies.showJoke === "0"))
 
     //get api joke
-    Axios.get("https://api.jokes.one/jod")
-    .then(res => {
-      setJoke(<p>{res.data.contents.jokes[0].joke.text}</p>);
-      
-    })
-    .catch(err => {
-      setJoke(<p>Podczas ładowania żartu, wystąpił problem :(</p>)
-    })
+    const options = {
+      method: 'GET',
+      url: 'https://jokeapi-v2.p.rapidapi.com/joke/Any',
+      params: {
+        format: 'json',
+        contains: 'C%23',
+        idRange: '0-150',
+        blacklistFlags: 'nsfw,racist'
+      },
+      headers: {
+        'X-RapidAPI-Key': '24cd410a5emsh3a1378cf7ba509dp141ab9jsn8463b7646711',
+        'X-RapidAPI-Host': 'jokeapi-v2.p.rapidapi.com'
+      }
+    };
+    
+    Axios.request(options).then((res)=>{
+      setJoke(<span>{res.data.setup}<br/> {res.data.delivery}</span>);
+    }).catch((err)=>{
+      setJoke("wystąpił problem podczas ładowania żartu :(")
+    });
   }, [cookies.showJoke])
     //returning Toast with joke
   return (
