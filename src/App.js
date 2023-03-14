@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Row, Container } from 'react-bootstrap';
 import { useState, lazy, Suspense } from 'react';
-import {useCookies} from "react-cookie";
+import { useCookies } from "react-cookie";
 
 import Navbar from './components/main/navbar';
 import Footer from "./components/main/footer"
@@ -11,12 +11,15 @@ import SwitchElement from "./components/main/switch";
 import Loading from './components/main/loading';
 
 //components loads only when its needed
-const Jokes = lazy(() => import('./components/jokes'))
-const Cookies = lazy(() => import("./components/main/cookies"))
-const TicTac = lazy(() => import('./components/tictac'))
 const Er404 = lazy(() => import('./components/main/er404'))
-const Day = lazy(() => import('./components/unusual_days'))
-const Home = lazy(() => import('./components/home/home'))
+const Cookies = lazy(() => import("./components/main/cookies"))
+
+const Day = lazy(() => import('./components/pages/unusual_days'))
+const Home = lazy(() => import('./components/pages/home/home'))
+
+const Games = lazy(() => import("./components/pages/games/games"))
+const TicTac = lazy(() => import('./components/pages/games/tictac'))
+const MiastleGame = lazy(() => import("./components/pages/games/miastle/miastleGame"))
 
 
 function App() {
@@ -34,21 +37,26 @@ function App() {
     <HashRouter>
       <Container fluid className={theme} >
 
-
+        {/* change dark/light theme */}
         <Container fluid className="fixed-top text-light bg-success" style={{ boxShadow: "0 0 5px #198754" }}>
           <SwitchElement handleClick={handleClick} />
         </Container>
-
+        {/* page */}
         <Container className='p-0 pt-3' fluid style={{ marginTop: "3vh" }}>
           <Navbar />
           <Suspense fallback={<Loading />}>
-            {(cookies.showJoke !== "0")? <Jokes /> : null}
-            {(cookies.allowCookies !== "1")? <Cookies /> : null}
+            {(cookies.allowCookies !== "1") ? <Cookies /> : null}
             <Row className='m-0'>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/tictac' element={<TicTac />} />
+                <Route path='/home' element={<Home/>}/>
                 <Route path='/unusual_day' element={<Day />} />
+
+                <Route path='/games' element={<Games />}>
+                  <Route path='tictac' element={<TicTac />} />
+                  <Route path='miastle' element={<MiastleGame />} />
+                </Route>
+
                 <Route path='/*' element={<Er404 />} />
               </Routes>
             </Row>

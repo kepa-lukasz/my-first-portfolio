@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { BsHouseFill, BsCalendarCheckFill, } from "react-icons/bs"
-import { GiTicTacToe } from "react-icons/gi"
+import { BsEmojiLaughingFill } from "react-icons/bs"
 import logo from "../logo.png"
 
 const NavbarElement = () => {
@@ -18,18 +18,18 @@ const NavbarElement = () => {
         <Navbar.Collapse id="navbarScroll">
           <Nav >
             <Nav.Link>
-              <Link to="/">
-                <Button variant="outline-success fs-4"> <BsHouseFill /> Home</Button>
+              <Link to="/" className="text-decoration-none">
+                <Button variant="outline-success fs-4 d-flex align-items-center "> <BsHouseFill />&nbsp;Home</Button>
               </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/tictac">
-                <Button variant="outline-success fs-4"> <GiTicTacToe /> Kółko-Krzyżyk</Button>
+              <Link to="/games" className="text-decoration-none">
+                <Button variant="outline-success fs-4 d-flex align-items-center "> <BsEmojiLaughingFill/> &nbsp;Mini gry</Button>
               </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/unusual_day">
-                <Button variant="outline-success fs-4"> <BsCalendarCheckFill /> Dzień nietypowy</Button>
+              <Link to="/unusual_day" className="text-decoration-none">
+                <Button variant="outline-success fs-4 d-flex align-items-center "> <BsCalendarCheckFill /> &nbsp;Dzień nietypowy</Button>
               </Link>
             </Nav.Link>
           </Nav>

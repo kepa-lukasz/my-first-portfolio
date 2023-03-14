@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../logo.png"
+import logo from "../../logo.png"
 import { Container, Col, Row } from "react-bootstrap";
 import { BsAt, BsCompass, BsClipboardCheck, BsPuzzle, BsGear, BsCpu, BsPersonSquare, BsEnvelopeFill, BsGithub } from "react-icons/bs"
 
