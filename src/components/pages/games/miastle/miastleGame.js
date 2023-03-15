@@ -1,28 +1,57 @@
-import { Alert, Badge, Button, Form, InputGroup, Col, Container, Row } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import { Alert, Badge, Button, Form, InputGroup, Container, Row } from "react-bootstrap";
+import React, { useState } from "react";
 import { cities, wos } from "./lists"
+import { checkCity, } from "./checkCity";
+
+
 const MiastleGame = () => {
-    const [city, setCity] = useState({})
+    //randomize new city
+    const changeCity = () => {
+        stopGame(false)
+        setCity(cities[Math.floor(Math.random() * cities.length)])
+        setResults([])
+        setTries(1)
+    }
+    //states
+    const [city, setCity] = useState(cities[Math.floor(Math.random() * cities.length)])
+    const [tries, setTries] = useState(1)
+    const [results, setResults] = useState([])
+    const [isEnded, stopGame] = useState(false)
+
+
+
+
+    let check = (event) => {
+        if (event.target[0].value.length > 0) {
+
+            setTries(tries + 1)
+            //change results state
+            let resultstmp = [...results]
+            let newResult = checkCity(event.target[0].value, city.wos, tries)
+            resultstmp.push(newResult.element)
+            //if game ended add button to new game
+            if (newResult.isEnded) {
+                resultstmp.push(
+                    <Alert key="koniec_gry" variant="success" className='justify-content-center text-center' >
+                        <Button variant="success" onClick={changeCity}>
+                            Nowa gra
+                        </Button>
+                    </Alert >
+                )
+                stopGame(true)
+            }
+            setResults(resultstmp.reverse())
+        }
+    }
+
+
+
     //load wos hints
     const options = Object.keys(wos).map((el) => { return (<option key={el}>{el}</option>) })
     //check if suggested wos is correct
-    const checkCity = (ev) => {
-        console.log(city.wos);
-        console.log(ev.target[0].value)
-        ev.preventDefault();
-    }
-    //randomize new city
 
 
 
-    const changeCity = () => {
-        const citytmp = cities[Math.floor(Math.random() * cities.length)]
-        setCity(citytmp)
-    }
-
-    useEffect(() => {
-        changeCity()
-    }, [])
     return (
         <Container>
             {/* info alert */}
@@ -37,13 +66,12 @@ const MiastleGame = () => {
             {/* input area */}
 
             <Row className="d-flex justify-content-center col-10 m-auto">
-                <Form onSubmit={checkCity} className="p-0">
+                <Form onSubmit={check} className="p-0">
 
                     <InputGroup className="p-0 mt-1 ">
-                        <InputGroup.Text className="fs-5">Wpisz nazwę województwa</InputGroup.Text>
-                        <Form.Control className="fs-5" list="data" />
+                        <Form.Control placeholder="Wpisz nazwę województwa" className="col-10 col-md-7 fs-5" list="data" />
                     </InputGroup>
-                    <Button type="submit" variant="success mt-1 fs-5">Sprawdź</Button>
+                    <Button disabled={isEnded} type="submit" variant="success my-1 fs-5">Sprawdź</Button>
 
                     <datalist id="data">
                         {options}
@@ -52,8 +80,10 @@ const MiastleGame = () => {
             </Row>
 
             {/* results */}
-
+            <Row className="d-flex justify-content-center col-10 m-auto">
+                {results}
+            </Row>
         </Container>
     )
 }
-export default MiastleGame;
+export default MiastleGame

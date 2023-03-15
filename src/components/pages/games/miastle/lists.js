@@ -1,4 +1,25 @@
+import {
+    BsArrowDownLeftSquareFill,
+    BsArrowDownSquareFill,
+    BsArrowDownRightSquareFill,
 
+    BsArrowLeftSquareFill,
+    BsArrowRightSquareFill,
+
+    BsArrowUpLeftSquareFill,
+    BsArrowUpRightSquareFill,
+    BsArrowUpSquareFill,
+} from "react-icons/bs"
+const emotes = {
+    "upleft" : <BsArrowUpLeftSquareFill/>,
+    "upright" : <BsArrowUpRightSquareFill/>,
+    "up" : <BsArrowUpSquareFill/>,
+    "left" :<BsArrowLeftSquareFill/>,
+    "right" : <BsArrowRightSquareFill/>,
+    "downleft" : <BsArrowDownLeftSquareFill/>,
+    "downright" : <BsArrowDownRightSquareFill/>,
+    "down" : <BsArrowDownSquareFill/>,
+}
 const cities = [
     {city : "Głubczyce" , wos :  "opolskie"},
     {city : "Kluczbork" , wos :  "opolskie"},
@@ -61,4 +82,4 @@ const wos  = {
     "podlaskie": [1, 1]
 }
 
-export  {cities, wos}
+export  {cities, wos, emotes}

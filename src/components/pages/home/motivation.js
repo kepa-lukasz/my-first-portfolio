@@ -10,7 +10,7 @@ const Motivation = () => {
         // set query options
         const options = {
             method: 'GET',
-            // url: 'https://random-quote-generator2.p.rapidapi.com/randomQuote',
+            url: 'https://random-quote-generator2.p.rapidapi.com/randomQuote',
             headers: {
                 'X-RapidAPI-Key': '24cd410a5emsh3a1378cf7ba509dp141ab9jsn8463b7646711',
                 'X-RapidAPI-Host': 'random-quote-generator2.p.rapidapi.com'
