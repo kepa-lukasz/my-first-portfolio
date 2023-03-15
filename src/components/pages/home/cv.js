@@ -70,7 +70,7 @@ let Cv = () => {
                     <hr />
                     <Container fluid>
                         <label className="h3 fw-bold m-3 text-warning"><BsCompass /> Zainteresowania</label>
-                        <p className="fs-5 m-3 ms-4">Harcerstwo (Jestem intruktorem ZHR)</p>
+                        <p className="fs-5 m-3 ms-4">Harcerstwo (Jestem instruktorem ZHR)</p>
                         <p className="fs-5 m-3 ms-4">Sport</p>
                         <p className="fs-5 m-3 ms-4">Szachy</p>
 
