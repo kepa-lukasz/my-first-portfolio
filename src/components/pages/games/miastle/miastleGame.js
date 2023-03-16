@@ -2,6 +2,7 @@ import { Alert, Badge, Button, Form, InputGroup, Container, Row } from "react-bo
 import React, { useState } from "react";
 import { cities, wos } from "./lists"
 import { checkCity, } from "./checkCity";
+import {BsPlayFill} from "react-icons/bs"
 
 
 const MiastleGame = () => {
@@ -23,25 +24,27 @@ const MiastleGame = () => {
 
     let check = (event) => {
         if (event.target[0].value.length > 0) {
-
+            
             setTries(tries + 1)
             //change results state
             let resultstmp = [...results]
             let newResult = checkCity(event.target[0].value, city.wos, tries)
-            resultstmp.push(newResult.element)
+            resultstmp.unshift(newResult.element)
             //if game ended add button to new game
+            event.target[0].value = ""
             if (newResult.isEnded) {
-                resultstmp.push(
+                resultstmp.unshift(
                     <Alert key="koniec_gry" variant="success" className='justify-content-center text-center' >
-                        <Button variant="success" onClick={changeCity}>
-                            Nowa gra
+                        <Button variant="outline-danger" onClick={changeCity}>
+                            Nowa gra <BsPlayFill/>
                         </Button>
                     </Alert >
                 )
                 stopGame(true)
             }
-            setResults(resultstmp.reverse())
+            setResults(resultstmp)
         }
+        event.preventdefault();
     }
 
 
