@@ -62,7 +62,7 @@ let Cv = () => {
                         <label className="h3 fw-bold m-3 text-warning"><BsPuzzle /> Umiejętności</label>
                         <p className="fs-5 m-3 ms-4">Znajomość React.js, HTML, CSS, Bootstrap</p>
                         <p className="fs-5 m-3 ms-4">Znajomość podstaw Node.js, Javascript, Php, Python</p>
-                        <p className="fs-5 m-3 ms-4">Znajomość języka angielskiego na poziomie B2</p>
+                        <p className="fs-5 m-3 ms-4">Znajomość języka angielskiego na poziomie B1</p>
                         <p className="fs-5 m-3 ms-4">Prawo jazdy kat. B</p>
                         <p className="fs-5 m-3 ms-4">Praca w grupie</p>
                         <p className="fs-5 m-3 ms-4">Organizacja wydarzeń, akcji, imprez</p>
