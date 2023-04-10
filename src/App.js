@@ -17,6 +17,7 @@ const Cookies = lazy(() => import("./components/main/cookies"))
 const Day = lazy(() => import('./components/pages/unusual_days'))
 const Home = lazy(() => import('./components/pages/home/home'))
 
+const Mainsort = lazy(()=>import("./components/pages/games/sorts/main_sort"))
 const Games = lazy(() => import("./components/pages/games/games"))
 const TicTac = lazy(() => import('./components/pages/games/tictac'))
 const MiastleGame = lazy(() => import("./components/pages/games/miastle/miastleGame"))
@@ -54,6 +55,7 @@ function App() {
 
                 <Route path='/games' element={<Games />}>
                   <Route path='tictac' element={<TicTac />} />
+                  <Route path='sort' element={<Mainsort />} />
                   <Route path='miastle' element={<MiastleGame />} />
                 </Route>
 

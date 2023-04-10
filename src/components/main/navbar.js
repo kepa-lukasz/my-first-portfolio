@@ -24,7 +24,7 @@ const NavbarElement = () => {
             </Nav.Link>
             <Nav.Link>
               <Link to="/games" className="text-decoration-none">
-                <Button variant="outline-success fs-4 d-flex align-items-center "> <BsEmojiLaughingFill/> &nbsp;Mini gry</Button>
+                <Button variant="outline-success fs-4 d-flex align-items-center "> <BsEmojiLaughingFill/> &nbsp;Pseud-rozrywka</Button>
               </Link>
             </Nav.Link>
             <Nav.Link>

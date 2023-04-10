@@ -107,7 +107,7 @@ const TicTac = () => {
 
       {/* game fields */}
       <Container fluid className="p-0 m-0 col-11 col-sm-10">
-      <Container className=" p-0 rounded border-success border " style={{ backgroundColor: "#32174D"}}>
+      <Container className=" p-0 rounded border-success border " >
         <Container className="col-12 col-md-9 d-flex justify-content-center">
         <Row className="col-12 col-md-10 col-xl-8 py-3" >
         {fields}
