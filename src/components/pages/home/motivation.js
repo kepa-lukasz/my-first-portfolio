@@ -29,12 +29,12 @@ const Motivation = () => {
     return (
         <Container fluid className="d-flex justify-content-center m-0 p-0">
             <Col className="col-11 col-sm-10 ">
-                <Alert variant="dark">
-                    <Alert.Heading>Smart quote for You: </Alert.Heading>
-                    <p className="fs-5">{quote}</p>
-                    <hr/>
-                    <p className="text-end fs-6">{author}</p>
-                </Alert>
+                <Container className="border border-success rounded-3 p-0">
+                    <h3 className="p-3 pb-2">Smart quote for You: </h3>
+                    <p className="p-4 pt-0 fs-5">{quote}</p>
+                    <hr className="mt-3 border border-success border-1" />
+                    <p className="text-end fs-6 p-3 pb-1">~{author}</p>
+                </Container>
             </Col>
         </Container>
     )

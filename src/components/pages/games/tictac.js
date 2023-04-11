@@ -114,9 +114,10 @@ const TicTac = () => {
         </Row >
         </Container>
 
-    
+      <hr className="mt-3 border border-success border-1" />
+
+      <Button onClick={newGame} variant="danger fs-3 m-3">Wyczyść pola</Button>
       </Container>
-      <Button onClick={newGame} variant="danger fs-3 my-3">Wyczyść pola</Button>
     </Container>
       </Container>
   )

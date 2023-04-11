@@ -2,7 +2,7 @@ import { Alert, Badge, Button, Form, InputGroup, Container, Row } from "react-bo
 import React, { useState } from "react";
 import { cities, wos } from "./lists"
 import { checkCity, } from "./checkCity";
-import {BsPlayFill} from "react-icons/bs"
+import { BsPlayFill } from "react-icons/bs"
 
 
 const MiastleGame = () => {
@@ -24,7 +24,7 @@ const MiastleGame = () => {
 
     let check = (event) => {
         if (event.target[0].value.length > 0) {
-            
+
             setTries(tries + 1)
             //change results state
             let resultstmp = [...results]
@@ -36,7 +36,7 @@ const MiastleGame = () => {
                 resultstmp.unshift(
                     <Alert key="koniec_gry" variant="success" className='justify-content-center text-center' >
                         <Button variant="outline-danger" onClick={changeCity}>
-                            Nowa gra <BsPlayFill/>
+                            Nowa gra <BsPlayFill />
                         </Button>
                     </Alert >
                 )
@@ -57,30 +57,45 @@ const MiastleGame = () => {
 
     return (
         <Container>
-            {/* info alert */}
-            <Row className="d-flex justify-content-center mx-1">
-                <Alert variant="warning d-flex justify-content-between col-10">
-                    <h3 >Twoje miasto: <Badge bg="success">{city.city}</Badge></h3>
+            <Container className="py-3 fs-3">
+                <Container className="border border-success rounded-3 p-0">
 
-                    <Button onClick={changeCity} variant="danger mx-2">Zmień</Button>
-                </Alert>
-            </Row>
+
+                    <Container className="p-0">
+
+                        <h3 className="p-3 pb-0" >Twoje miasto: <Badge bg="success">{city.city}</Badge></h3>
+
+                        <hr className="mt-2 border border-success border-1" />
+                        <Button onClick={changeCity} variant="danger mx-3 mb-3">Zmień Miasto</Button>
+
+                    </Container>
+                </Container>
+            </Container>
+            {/* info alert */}
+            <Container className="d-flex justify-content-center mx-1">
+                <Container variant="border border-success d-flex justify-content-between col-10">
+
+                </Container>
+            </Container>
 
             {/* input area */}
+            <Container>
 
-            <Row className="d-flex justify-content-center col-10 m-auto">
-                <Form onSubmit={check} className="p-0">
+                <Container fluid className=" border border-success d-flex justify-content-center p-0 rounded-3">
+                    <Form onSubmit={check} className="p-0 w-100">
 
-                    <InputGroup className="p-0 mt-1 ">
-                        <Form.Control placeholder="Wpisz nazwę województwa" className="col-10 col-md-7 fs-5" list="data" />
-                    </InputGroup>
-                    <Button disabled={isEnded} type="submit" variant="success my-1 fs-5">Sprawdź</Button>
+                        <InputGroup className="p-3">
+                            <Form.Control placeholder="Wpisz nazwę województwa" className="col-10 col-md-7 fs-5" list="data" />
+                        </InputGroup>
+                        <hr className="mt-3 border border-success border-1" />
+                        <Button disabled={isEnded} type="submit" variant="success fs-5 m-3 mt-0">Sprawdź</Button>
 
-                    <datalist id="data">
-                        {options}
-                    </datalist>
-                </Form>
-            </Row>
+                        <datalist id="data">
+                            {options}
+                        </datalist>
+                    </Form>
+                </Container>
+            </Container>
 
             {/* results */}
             <Row className="d-flex justify-content-center col-10 m-auto">
