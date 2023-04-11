@@ -19,8 +19,8 @@ const Footer = () => {
                 <Col className="col-11 col-sm-6 col-md-4 p-0">
                     <ListGroup className="my-1 fs-4">
                         <ListGroup.Item className="text-break text-white bg-success m-0 p-0 ps-2">Wykorzystane api: </ListGroup.Item>
-                        <ListGroup.Item className="text-break m-0 p-0 ps-2" > <a className="text-warning" href="https://rapidapi.com/dipinpjoseph/api/random-quote-generator2/">https://rapidapi.com/dipinpjoseph/api/random-quote-generator2/</a> </ListGroup.Item>
-                        <ListGroup.Item className="text-break m-0 p-0 ps-2" > <a className="text-warning" href="https://github.com/pniedzwiedzinski">pniedzwiedzinski.github.io/kalendarz-swiat-nietypowych</a> </ListGroup.Item>
+                        <ListGroup.Item className="text-break m-0 p-0 ps-2" > <a  href="https://rapidapi.com/dipinpjoseph/api/random-quote-generator2/">https://rapidapi.com/dipinpjoseph/api/random-quote-generator2/</a> </ListGroup.Item>
+                        <ListGroup.Item className="text-break m-0 p-0 ps-2" > <a  href="https://github.com/pniedzwiedzinski">pniedzwiedzinski.github.io/kalendarz-swiat-nietypowych</a> </ListGroup.Item>
                     </ListGroup>
                 </Col>
                 <Col className="col-11  col-md-3 text-white p-0">
