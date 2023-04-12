@@ -33,7 +33,7 @@ const SwitchElement = ({ handleClick }) => {
         handleClick(isDark)
     }
     return (
-        <Container fluid className=" p-0 pe-4 pt-1 border-bottom border-success" style={{minHeight : "4vh"}}>
+        <Container fluid className=" p-0 pe-4 pt-1">
             <Form.Check
                 reverse
                 type="switch"

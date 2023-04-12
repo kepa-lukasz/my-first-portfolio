@@ -10,7 +10,7 @@ const Games = () => {
 
             {/* here the game will be  displayed */}
             <Outlet />
-            <Container fluid className=" mb-3">
+            <Container fluid className="p-0 mb-3">
                 <hr className="mt-4 border border-success border-1" />
                 <Tilts/>
                 <hr className="mt-4 border border-success border-1" />

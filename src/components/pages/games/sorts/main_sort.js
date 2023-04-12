@@ -1,12 +1,17 @@
 import React from "react";
 import Tabcontainer from "./tab_container";
 import { useState } from "react";
-import { Alert, Button, Container } from "react-bootstrap";
-import { BsLightning, BsExclamationTriangle, BsArrowDownSquare, BsReply, BsInfo } from "react-icons/bs"
+import { Alert, Button, Container} from "react-bootstrap";
+
+//icons
+import { BsLightning, BsExclamationTriangle, BsArrowDownSquare, BsReply, BsGeoAlt } from "react-icons/bs"
 import { TbChartBubble } from "react-icons/tb"
 import { AiOutlineAim } from "react-icons/ai"
 import { RiEmotionSadLine } from "react-icons/ri"
 const Mainsort = () => {
+    
+    //set states 
+
     const [tab, setTab] = useState([9, 1, 4, 2, 11, 7, 3, 8, 5, 12, 6, 10])
     const [info, setInfo] = useState(<p>Wybierz algorytm, lub wymieszaj listę</p>)
     const [isSorting, chIsSorting] = useState(false)
@@ -14,18 +19,20 @@ const Mainsort = () => {
     const [show, setShow] = useState(true);
     const [howalert, setalert] = useState()
 
-
-    const showalert = (info, color) =>{
+//info display
+    const showalert = (info, color) => {
         setShow(true)
         setalert(
-            <Alert variant={color} onClose={()=>{setShow(false)}} dismissible>
+            <Alert variant={color} onClose={() => { setShow(false) }} dismissible>
                 <Alert.Heading>{info}</Alert.Heading>
             </Alert>
         )
     }
+//wait to show how sorting function step work
     const sleep = (ms) => {
         return new Promise(res => setTimeout(res, ms))
     }
+//randomize array
     const mix = () => {
         if (isSorting) return
         let sortedTab = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -39,6 +46,7 @@ const Mainsort = () => {
         setTab(tabtmp)
         chSorted(false)
     }
+//sorting functions
     const jsSort = () => {
         if (isSorting || isSorted) return
         setInfo(<p>Język programowania javascript(w nim aplikacja jest napisana) uznaje liczby w tablicy (typ number) za słowa/ciągi znaków.
@@ -53,9 +61,9 @@ const Mainsort = () => {
         showalert("prawie posortowano!", "warning")
         return
     }
-    async function bubble() {
+    async function bubbleSort() {
         if (isSorting || isSorted) return
-        
+
         chIsSorting(true)
         setTab([9, 1, 4, 2, 11, 7, 3, 8, 5, 12, 6, 10])
         setInfo(<p>Algorytm wybiera po kolei pary liczb, które są obok siebie,
@@ -79,7 +87,7 @@ const Mainsort = () => {
         showalert("Posortowano!", "success")
         return
     }
-    async function insert() {
+    async function insertSort() {
         if (isSorting || isSorted) return
         chIsSorting(true)
 
@@ -107,7 +115,7 @@ const Mainsort = () => {
         showalert("Posortowano!", "success")
         return
     }
-    async function bogo() {
+    async function bogoSort() {
         if (isSorting) return
         chIsSorting(true)
         setInfo(<p><span className="fs-5 text-danger">Bogo sort nie jest algorytmem sortującym!</span><br />
@@ -142,17 +150,16 @@ const Mainsort = () => {
                 }
             loop = !sorted
         }
-        (loop)?
-        showalert("Nie udało się posortowac tablicy przy 20 podejściach, więc przerwano działanie kodu!", "danger")
-        : showalert("Udało się!", "success")
+        (loop) ?
+            showalert("Nie udało się posortowac tablicy przy 20 podejściach, więc przerwano działanie kodu!", "danger")
+            : showalert("Udało się!", "success")
         chIsSorting(false)
         chSorted(true)
         return
     }
-    async function choose() { }
     return (
         <Container>
-            {(show)? howalert : null}
+            {(show) ? howalert : null}
             <Container className="px-3 py-3 mb-3 border border-success rounded-3">
                 <p className="p-0 m-0">{info}</p>
             </Container>
@@ -167,19 +174,36 @@ const Mainsort = () => {
                     <Button disabled={isSorted} variant="outline-warning fs-5 d-flex align-items-center my-2 mx-1" onClick={jsSort}>
                         <RiEmotionSadLine />&nbsp;sortowanie javascript
                     </Button>
-                    <Button  disabled variant="outline-primary fs-5 d-flex align-items-center my-2 mx-1" onClick={() => { console.log("ok-sortowanie") }}>
-                        <BsLightning />&nbsp;sortowanie szybkie
-                    </Button>
-                    <Button disabled={isSorted} variant="outline-success fs-5 d-flex align-items-center my-2 mx-1" onClick={bubble}>
+
+                    <button type="button" className="opacity-25 fs-5 py-0 btn btn-outline-primary position-relative my-2 mx-1">
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-secondary">
+                            wkrótce dostępne
+                        </span>
+                        <span className="p-0"> <BsLightning />&nbsp;sortowanie szybkie</span>
+
+                    </button>
+
+                    <Button disabled={isSorted} variant="outline-success fs-5 d-flex align-items-center my-2 mx-1" onClick={bubbleSort}>
                         <TbChartBubble />&nbsp;sortowanie bąbelkowe
                     </Button>
-                    <Button disabled={isSorted} variant="outline-success fs-5 d-flex align-items-center my-2 mx-1" onClick={insert}>
+                    <Button disabled={isSorted} variant="outline-success fs-5 d-flex align-items-center my-2 mx-1" onClick={insertSort}>
                         <BsArrowDownSquare />&nbsp;sortowanie przez wstawianie
                     </Button>
-                    <Button disabled variant="outline-success fs-5 d-flex align-items-center my-2 mx-1" onClick={choose}>
-                        <AiOutlineAim />&nbsp;sortowanie przez wybór
-                    </Button>
-                    <Button variant="outline-danger fs-5 d-flex align-items-center my-2 mx-1" onClick={bogo}>
+                    <button type="button" className="opacity-25 fs-5 py-0 btn btn-outline-success position-relative my-2 mx-1">
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-secondary">
+                            wkrótce dostępne
+                        </span>
+                        <span className="p-0"> <AiOutlineAim />&nbsp;sortowanie przez wybór</span>
+
+                    </button>
+                    <button type="button" className="opacity-25 fs-5 py-0 btn btn-outline-success position-relative my-2 mx-1">
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-secondary">
+                            wkrótce dostępne
+                        </span>
+                        <span className="p-0"> <BsGeoAlt />&nbsp;sortowanie szybkie</span>
+
+                    </button>
+                    <Button variant="outline-danger fs-5 d-flex align-items-center my-2 mx-1" onClick={bogoSort}>
                         <BsExclamationTriangle />&nbsp;Bogo
                     </Button>
                     <Button variant="success fs-5 d-flex align-items-center my-2 mx-1" onClick={mix}>

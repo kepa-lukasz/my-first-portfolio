@@ -10,7 +10,7 @@ function Tilts() {
     const options = {
         scale : 1.1,
         speed : 1000,
-        max : 20
+        max : 30
     }
     const tilt1 = useRef(null);
     const tilt2 = useRef(null);
@@ -34,7 +34,7 @@ function Tilts() {
                             <Container className="p-2  text-center w-100 "
                                 style={{ backgroundColor: "rgba(25, 135, 84, 0.75)" }}
                             >
-                                <p className="fs-4 my-auto py-1 text-black">Kółko-Krzyżyk</p>
+                                <p style={{transform : "translateZ(100px)"}} className="fs-4 my-auto py-1 text-black">Kółko-Krzyżyk</p>
                             </Container>
                         </Container>
 

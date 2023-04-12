@@ -17,7 +17,7 @@ const Cookies = lazy(() => import("./components/main/cookies"))
 const Day = lazy(() => import('./components/pages/unusual_days'))
 const Home = lazy(() => import('./components/pages/home/home'))
 
-const Mainsort = lazy(()=>import("./components/pages/games/sorts/main_sort"))
+const Mainsort = lazy(() => import("./components/pages/games/sorts/main_sort"))
 const Games = lazy(() => import("./components/pages/games/games"))
 const TicTac = lazy(() => import('./components/pages/games/tictac'))
 const MiastleGame = lazy(() => import("./components/pages/games/miastle/miastleGame"))
@@ -31,26 +31,28 @@ function App() {
   let themeHandler = ""
   //change classes for dark or light theme
   const handleClick = (isDark) => {
-    themeHandler = (isDark) ? "bg-dark text-white p-0" : "bg-light text-black p-0"
+    themeHandler = (isDark) ? "bg-dark text-white p-0 m-0" : "bg-light text-black p-0 m-0"
     setTheme(themeHandler)
   }
   return (
     <HashRouter>
+        
       <Container fluid className={theme} >
+      <Container fluid className='p-0 m-0' style={{minHeight : "100vh"}}>
 
         {/* change dark/light theme */}
-        <Container fluid className="fixed-top text-light bg-success" style={{ boxShadow: "0 0 5px #198754" }}>
+        <Container fluid className="fixed-top text-light bg-success" style={{height : "35px"}} >
           <SwitchElement handleClick={handleClick} />
         </Container>
         {/* page */}
-        <Container className='p-0 pt-3' fluid style={{ marginTop: "3vh" }}>
+        <Container fluid className='p-0 pt-3' >
           <Navbar />
           <Suspense fallback={<Loading />}>
             {(cookies.allowCookies !== "1") ? <Cookies /> : null}
             <Row className='m-0'>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/home' element={<Home/>}/>
+                <Route path='/home' element={<Home />} />
                 <Route path='/unusual_day' element={<Day />} />
 
                 <Route path='/games' element={<Games />}>
@@ -64,8 +66,9 @@ function App() {
             </Row>
           </Suspense>
 
-          <Footer style={{ alignSelf: "flex-end" }} />
         </Container>
+          <Footer style={{ alignSelf: "flex-end" }} />
+      </Container>
       </Container>
     </HashRouter>
   );

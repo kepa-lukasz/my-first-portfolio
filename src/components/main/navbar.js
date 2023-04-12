@@ -7,7 +7,7 @@ import logo from "../logo.png"
 
 const NavbarElement = () => {
   return (
-    <Navbar expand="md" className=" mb-5 border-bottom border-success">
+    <Navbar expand="md" className="mt-2 mb-5 border-bottom border-success" >
       <Container fluid>
         <Navbar.Brand>
         <Link to="/">
