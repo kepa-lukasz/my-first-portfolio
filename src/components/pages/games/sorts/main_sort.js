@@ -1,7 +1,7 @@
 import React from "react";
 import Tabcontainer from "./tab_container";
 import { useState } from "react";
-import { Alert, Button, Container} from "react-bootstrap";
+import { Alert, Button, Container } from "react-bootstrap";
 
 //icons
 import { BsLightning, BsExclamationTriangle, BsArrowDownSquare, BsReply, BsGeoAlt } from "react-icons/bs"
@@ -9,7 +9,7 @@ import { TbChartBubble } from "react-icons/tb"
 import { AiOutlineAim } from "react-icons/ai"
 import { RiEmotionSadLine } from "react-icons/ri"
 const Mainsort = () => {
-    
+
     //set states 
 
     const [tab, setTab] = useState([9, 1, 4, 2, 11, 7, 3, 8, 5, 12, 6, 10])
@@ -19,7 +19,7 @@ const Mainsort = () => {
     const [show, setShow] = useState(true);
     const [howalert, setalert] = useState()
 
-//info display
+    //info display
     const showalert = (info, color) => {
         setShow(true)
         setalert(
@@ -28,11 +28,11 @@ const Mainsort = () => {
             </Alert>
         )
     }
-//wait to show how sorting function step work
+    //wait to show how sorting function step work
     const sleep = (ms) => {
         return new Promise(res => setTimeout(res, ms))
     }
-//randomize array
+    //randomize array
     const mix = () => {
         if (isSorting) return
         let sortedTab = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -46,8 +46,9 @@ const Mainsort = () => {
         setTab(tabtmp)
         chSorted(false)
     }
-//sorting functions
+    //sorting functions
     const jsSort = () => {
+        setShow(false)
         if (isSorting || isSorted) return
         setInfo(<p>Język programowania javascript(w nim aplikacja jest napisana) uznaje liczby w tablicy (typ number) za słowa/ciągi znaków.
             <br />Chodzi w tym o to, że funkcja array.sort() potrafi sortować słowa (np. [kot, pies, borsuk] &rarr; [borsuk, kot, pies])
@@ -62,10 +63,10 @@ const Mainsort = () => {
         return
     }
     async function bubbleSort() {
+        setShow(false)
         if (isSorting || isSorted) return
 
         chIsSorting(true)
-        setTab([9, 1, 4, 2, 11, 7, 3, 8, 5, 12, 6, 10])
         setInfo(<p>Algorytm wybiera po kolei pary liczb, które są obok siebie,
             następnie porównanuje je i jeżeli liczba z lewej strony jest większa,
             zamienia ja miejscami.</p>)
@@ -88,6 +89,7 @@ const Mainsort = () => {
         return
     }
     async function insertSort() {
+        setShow(false)
         if (isSorting || isSorted) return
         chIsSorting(true)
 
@@ -116,6 +118,7 @@ const Mainsort = () => {
         return
     }
     async function bogoSort() {
+        setShow(false)
         if (isSorting) return
         chIsSorting(true)
         setInfo(<p><span className="fs-5 text-danger">Bogo sort nie jest algorytmem sortującym!</span><br />
@@ -157,6 +160,36 @@ const Mainsort = () => {
         chSorted(true)
         return
     }
+    async function chooseSort() {
+        setShow(false)
+        if (isSorting || isSorted) return
+
+        chIsSorting(true)
+        setInfo(<p>Algorytm po kolei szuka najmniejszej wartości, następnie zamienia ją miejscem z wartością na początku listy.<br />
+            Algorytm za każdym razem rozpoczyna działanie od kolejnego elementu tablicy(Ten najmniejszy element jest na początku, więc możemy go pominąć).
+        </p>)
+        let tabtmp = tab
+        let swapTmp
+
+        for (let i = 0; i < tabtmp.length - 1; i++) {
+            let min = i
+            for (let j = i + 1; j < tabtmp.length; j++) {
+                if (tabtmp[j] < tabtmp[min])
+                    min = j
+            }
+            if (min !== i) {
+                swapTmp = tabtmp[i]
+                tabtmp[i] = tabtmp[min]
+                tabtmp[min] = swapTmp
+            }
+            await sleep(400)
+            setTab([...tabtmp])
+        }
+        chIsSorting(false)
+        chSorted(true)
+        showalert("Posortowano!", "success")
+
+    }
     return (
         <Container>
             {(show) ? howalert : null}
@@ -174,8 +207,11 @@ const Mainsort = () => {
                     <Button disabled={isSorted} variant="outline-warning fs-5 d-flex align-items-center my-2 mx-1" onClick={jsSort}>
                         <RiEmotionSadLine />&nbsp;sortowanie javascript
                     </Button>
-
-                    <button type="button" className="opacity-25 fs-5 py-0 btn btn-outline-primary position-relative my-2 mx-1">
+{/* 
+                    <Button disabled={isSorted} variant="outline-primary fs-5 d-flex align-items-center my-2 mx-1" onClick={quickSort}>
+                        <BsLightning />&nbsp;sortowanie szybkie
+                    </Button> */}
+                     <button type="button" className="opacity-25 fs-5 py-0 btn btn-outline-primary position-relative my-2 mx-1">
                         <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-secondary">
                             wkrótce dostępne
                         </span>
@@ -189,20 +225,10 @@ const Mainsort = () => {
                     <Button disabled={isSorted} variant="outline-success fs-5 d-flex align-items-center my-2 mx-1" onClick={insertSort}>
                         <BsArrowDownSquare />&nbsp;sortowanie przez wstawianie
                     </Button>
-                    <button type="button" className="opacity-25 fs-5 py-0 btn btn-outline-success position-relative my-2 mx-1">
-                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-secondary">
-                            wkrótce dostępne
-                        </span>
-                        <span className="p-0"> <AiOutlineAim />&nbsp;sortowanie przez wybór</span>
+                    <Button disabled={isSorted} variant="outline-success fs-5 d-flex align-items-center my-2 mx-1" onClick={chooseSort}>
+                        <AiOutlineAim />&nbsp;sortowanie przez wybór
+                    </Button>
 
-                    </button>
-                    <button type="button" className="opacity-25 fs-5 py-0 btn btn-outline-success position-relative my-2 mx-1">
-                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-secondary">
-                            wkrótce dostępne
-                        </span>
-                        <span className="p-0"> <BsGeoAlt />&nbsp;sortowanie szybkie</span>
-
-                    </button>
                     <Button variant="outline-danger fs-5 d-flex align-items-center my-2 mx-1" onClick={bogoSort}>
                         <BsExclamationTriangle />&nbsp;Bogo
                     </Button>
